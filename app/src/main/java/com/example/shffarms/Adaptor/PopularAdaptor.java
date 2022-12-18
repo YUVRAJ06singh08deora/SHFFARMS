@@ -1,5 +1,6 @@
 package com.example.shffarms.Adaptor;
 
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.shffarms.Activity.ShowDetailActivity;
 import com.example.shffarms.Domain.FoodDomain;
 import com.example.shffarms.R;
 
@@ -38,6 +40,15 @@ ArrayList<FoodDomain> popularFood;
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.pic);
+
+        holder.addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(holder.itemView.getContext(), ShowDetailActivity.class);
+                intent.putExtra("object",popularFood.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override
