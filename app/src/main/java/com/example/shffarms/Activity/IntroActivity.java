@@ -26,8 +26,5 @@ private ConstraintLayout startBtn;
         });
 
     }
-    public void startMainActivity(View v)
-    {
-        startActivity(new Intent(IntroActivity.this,MainActivity.class));
-    }
+
 }
