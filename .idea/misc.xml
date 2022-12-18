@@ -3,10 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/cart_background.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/cat_background.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/cat_background2.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/cat_background3.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/cat_background4.xml" value="0.2105" />
+        <entry key="app/src/main/res/drawable/cat_background5.xml" value="0.22" />
         <entry key="app/src/main/res/drawable/orange_button.xml" value="0.2585" />
         <entry key="app/src/main/res/drawable/orange_light_banner.xml" value="0.4851577758789064" />
+        <entry key="app/src/main/res/drawable/viewholder_popular.xml" value="0.2105" />
         <entry key="app/src/main/res/layout/activity_intro.xml" value="0.18" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/viewholder_category.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/viewholder_popular.xml" value="0.24818993240106307" />
       </map>
     </option>
   </component>
