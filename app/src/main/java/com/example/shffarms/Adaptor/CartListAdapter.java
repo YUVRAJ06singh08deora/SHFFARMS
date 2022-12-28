@@ -69,10 +69,9 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
         public void onClick(View v) {
             managementCart.minusNumberFood(foodDomains, position, new ChangeNumberItemsListner() {
                 @Override
-                public void changed() {
+                public void changed(){
                    notifyDataSetChanged();
                    changeNumberItemsListner.changed();
-
                 }
             });
         }
@@ -97,7 +96,6 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
             num=itemView.findViewById(R.id.numberItemTxt);
             plusItem=itemView.findViewById(R.id.plusCartBtn);
             minusItem=itemView.findViewById(R.id.minusCartBtn);
-
         }
     }
 }

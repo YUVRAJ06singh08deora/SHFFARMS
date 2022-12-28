@@ -21,7 +21,6 @@ public class CategoryDomain {
         return pic;
     }
 
-    public void setPic(String pic) {
-        this.pic = pic;
+    public void setPic(String pic) { this.pic = pic;
     }
 }

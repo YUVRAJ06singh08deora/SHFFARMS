@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="258.51dp"
+        android:background="#ffffff">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView1"
+            android:layout_width="173.32dp"
+            android:layout_height="248.51dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="15dp">
+
+            <ImageView
+                android:id="@+id/productImage1"
+                android:layout_width="72.39dp"
+                android:layout_height="96.9dp"
+                android:layout_marginLeft="50.47dp"
+                android:layout_marginTop="19.68dp"
+                android:src="@drawable/almond"></ImageView>
+
+            <TextView
+                android:id="@+id/productname1"
+                android:layout_width="63dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="139.95dp"
+
+                android:text="Almonds" />
+
+            <TextView
+                android:id="@+id/shortDesc1"
+                android:layout_width="89.05dp"
+                android:layout_height="19.89dp"
+                android:layout_marginLeft="15.73dp"
+                android:layout_marginTop="171.9dp"
+                android:text="100gm" />
+
+            <TextView
+                android:id="@+id/price1"
+                android:layout_width="52.13dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="204.64dp"
+                android:text="Rs. 160" />
+
+            <ImageView
+                android:id="@+id/addBtn1"
+                android:layout_width="45.67dp"
+                android:layout_height="45.67dp"
+                android:layout_marginLeft="113.16dp"
+                android:layout_marginTop="180.84dp"
+                android:src="@drawable/add_btn" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView2"
+            android:layout_width="173.32dp"
+            android:layout_height="249.51dp"
+            android:layout_marginLeft="220dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            app:cardCornerRadius="20dp">
+
+            <ImageView
+                android:id="@+id/productImage2"
+                android:layout_width="72.39dp"
+                android:layout_height="96.9dp"
+                android:layout_marginLeft="50.47dp"
+                android:layout_marginTop="19.68dp"
+                android:src="@drawable/almond"></ImageView>
+
+            <TextView
+                android:id="@+id/productname2"
+                android:layout_width="63dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="139.95dp"
+
+                android:text="Almonds" />
+
+            <TextView
+                android:id="@+id/shortDesc2"
+                android:layout_width="89.05dp"
+                android:layout_height="19.89dp"
+                android:layout_marginLeft="15.73dp"
+                android:layout_marginTop="171.9dp"
+                android:text="100gm" />
+
+            <TextView
+                android:id="@+id/price2"
+                android:layout_width="52.13dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="204.64dp"
+                android:text="Rs. 160" />
+
+            <ImageView
+                android:id="@+id/addBtn2"
+                android:layout_width="45.67dp"
+                android:layout_height="45.67dp"
+                android:layout_marginLeft="113.16dp"
+                android:layout_marginTop="180.84dp"
+                android:src="@drawable/add_btn" />
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

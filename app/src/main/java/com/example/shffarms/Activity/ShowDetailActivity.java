@@ -1,11 +1,11 @@
 package com.example.shffarms.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.shffarms.Domain.FoodDomain;
@@ -40,7 +40,6 @@ private ManagementCart managementCart;
         feeTxt.setText("Rs."+object.getFee());
         descriptionTxt.setText(object.getDescription());
         numberOrderTxt.setText(String.valueOf(numberOrder));
-
         plusBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,13 +61,9 @@ private ManagementCart managementCart;
             public void onClick(View v) {
                  object.setNumberInCart(numberOrder);
                  managementCart.insertFood(object);
-
             }
         });
-
-
     }
-
     private void initView() {
         addToCartBtn=findViewById(R.id.addToCartBtn);
         titleTxt=findViewById(R.id.titleTxt);
