@@ -22,6 +22,9 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import io.paperdb.Paper;
+
 public class LoginActivity extends AppCompatActivity {
 
     private EditText InputPhoneNumber, InputPassword;
@@ -41,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         NotAdminLink = (TextView) findViewById(R.id.not_admin_panel_link);
         loadingBar = new ProgressDialog(this);
         chkBoxRememberMe = (CheckBox) findViewById(R.id.remember_me_chkb);
-
+        Paper.init(this);
         LoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,7 +101,11 @@ public class LoginActivity extends AppCompatActivity {
     private void AllowAccessToAccount(final String phone, final String password)
     {
 
-
+        if(chkBoxRememberMe.isChecked())
+        {
+            Paper.book().write(Prevalent.UserPhoneKey, phone);
+            Paper.book().write(Prevalent.UserPasswordKey, password);
+        }
         final DatabaseReference RootRef;
         RootRef = FirebaseDatabase.getInstance().getReference();
         RootRef.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -116,14 +123,14 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Welcome Admin, you are logged in Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, AdminCategoryActivity.class);
                                 startActivity(intent);
                             }
                             else if (parentDbName.equals("Users")){
                                 Toast.makeText(LoginActivity.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
                                 loadingBar.dismiss();
 
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
                                 Prevalent.currentOnlineUser = usersData;
                                 startActivity(intent);
                             }
