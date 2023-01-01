@@ -1,11 +1,11 @@
 package com.example.shffarms.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.shffarms.R;
 
@@ -21,7 +21,7 @@ private ConstraintLayout startBtn;
         startBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(IntroActivity.this,MainActivity.class));
+                startActivity(new Intent(IntroActivity.this,LoginActivity.class));
             }
         });
 

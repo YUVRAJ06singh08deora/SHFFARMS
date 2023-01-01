@@ -7,7 +7,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 
 public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHolder> {
     private SelectListner listner;
-ArrayList<CategoryDomain>categoryDomains;
+    ArrayList<CategoryDomain>categoryDomains;
 
     public CategoryAdaptor(ArrayList<CategoryDomain> categoryDomains,SelectListner listner) {
         this.categoryDomains = categoryDomains;
@@ -38,7 +37,7 @@ ArrayList<CategoryDomain>categoryDomains;
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
     holder.categoryName.setText(categoryDomains.get(position).getTitle());
     String picUrl="";
-    switch (position){
+    switch (holder.getAdapterPosition()){
         case 0:{
             picUrl="dry_fruits";
             holder.mainLayout.setBackground(ContextCompat.getDrawable(holder.itemView.getContext(),R.drawable.cat_background1));
@@ -70,13 +69,14 @@ ArrayList<CategoryDomain>categoryDomains;
             break;
         }
     }
-    holder.categoryPic.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            listner.onItemClicked(categoryDomains.get(position));
-        }
-    });
 
+        holder.categoryPic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listner.onItemClicked(categoryDomains.get(position));
+
+            }
+        });
 
     int drawableResourceId=holder.itemView.getContext().getResources().getIdentifier(picUrl,"drawable",holder.itemView.getContext().getPackageName());
         Glide.with(holder.itemView.getContext())
@@ -93,8 +93,6 @@ ArrayList<CategoryDomain>categoryDomains;
      TextView categoryName;
      ImageView categoryPic;
      ConstraintLayout mainLayout;
-     CardView cardView;
-
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             categoryName=itemView.findViewById(R.id.categoryName);
@@ -102,7 +100,6 @@ ArrayList<CategoryDomain>categoryDomains;
             mainLayout=itemView.findViewById(R.id.mainLayout);
 
         }
-
-
     }
+
 }

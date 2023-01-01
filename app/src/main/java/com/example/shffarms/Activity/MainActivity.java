@@ -86,7 +86,6 @@ private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
 
     @Override
     public void onItemClicked(CategoryDomain categoryDomain) {
-        Intent intent=new Intent(getApplicationContext(),CategoryActivity.class);
-        startActivity(intent);
+      startActivity(new Intent(this, CategoryActivity.class));
     }
 }
