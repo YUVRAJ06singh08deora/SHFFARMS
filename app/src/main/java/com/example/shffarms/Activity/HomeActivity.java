@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -36,12 +35,14 @@ public class HomeActivity extends AppCompatActivity {
     TextView textView;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
-
+    private RecyclerView.Adapter adapter,adapter2;
+    private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+
+     //   AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
         ProductsRef = FirebaseDatabase.getInstance().getReference().child("Products");
 
         drawerLayout=findViewById(R.id.drawer_layout);
@@ -78,6 +79,9 @@ public class HomeActivity extends AppCompatActivity {
         });
 
     }
+
+
+
     @Override
     protected void onStart() {
         super.onStart();

@@ -1,15 +1,15 @@
 package com.example.shffarms.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.shffarms.Adaptor.CartListAdapter;
 import com.example.shffarms.Helper.ManagementCart;
@@ -39,7 +39,7 @@ private ScrollView scrollView;
 
     private void bottomNavigation(){
         FloatingActionButton floatingActionButton=findViewById(R.id.cartBtn);
-        LinearLayout homebtn=findViewById(R.id.homebtn);
+        LinearLayout homebtn=findViewById(R.id.homebtn1);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

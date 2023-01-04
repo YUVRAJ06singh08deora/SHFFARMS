@@ -66,7 +66,7 @@ private ManagementCart managementCart;
     }
     private void initView() {
         addToCartBtn=findViewById(R.id.addToCartBtn);
-        titleTxt=findViewById(R.id.titleTxt);
+        titleTxt=findViewById(R.id.cart_product_name);
         feeTxt=findViewById(R.id.priceTxt);
         descriptionTxt=findViewById(R.id.descriptionTxt);
         numberOrderTxt=findViewById(R.id.numberOrderTxt);

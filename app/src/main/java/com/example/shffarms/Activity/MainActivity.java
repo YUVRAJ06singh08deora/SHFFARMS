@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -22,12 +23,18 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements SelectListner {
 private RecyclerView.Adapter adapter,adapter2;
 private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
+private TextView explore_more;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        
+        explore_more=findViewById(R.id.explore_more_txt);
+        explore_more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,explore_all_products.class));
+            }
+        });
         recyclerViewCategory();
         recycyclerViewPopular();
         bottomNavigation();
@@ -39,7 +46,7 @@ private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,CartListActivity.class));
+                startActivity(new Intent(MainActivity.this,CartActivity.class));
             }
         });
         homebtn.setOnClickListener(new View.OnClickListener() {

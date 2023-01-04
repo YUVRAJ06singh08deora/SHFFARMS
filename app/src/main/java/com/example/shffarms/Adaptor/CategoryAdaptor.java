@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.shffarms.Activity.MainActivity;
 import com.example.shffarms.Domain.CategoryDomain;
 import com.example.shffarms.Interface.SelectListner;
 import com.example.shffarms.R;
@@ -22,7 +23,7 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
     private SelectListner listner;
     ArrayList<CategoryDomain>categoryDomains;
 
-    public CategoryAdaptor(ArrayList<CategoryDomain> categoryDomains,SelectListner listner) {
+    public CategoryAdaptor(ArrayList<CategoryDomain> categoryDomains, MainActivity listner) {
         this.categoryDomains = categoryDomains;
         this.listner=listner;
     }

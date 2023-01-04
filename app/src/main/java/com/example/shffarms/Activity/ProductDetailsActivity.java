@@ -41,7 +41,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_product_details);
         productID = getIntent().getStringExtra("pid");
         addToCartButton =(Button) findViewById(R.id.pd_add_to_cart_button);
-        //  numberButton = (ElegantNumberButton) findViewById(R.id.number_btn);
+       // numberButton = (ElegantNumberButton) findViewById(R.id.number_btn);
         productImage = (ImageView) findViewById(R.id.product_image_details);
         productName = (TextView) findViewById(R.id.product_name_details);
         productDescription = (TextView) findViewById(R.id.product_description_details);
@@ -82,7 +82,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         cartMap.put("price",productPrice.getText().toString());
         cartMap.put("date",saveCurrentDate);
         cartMap.put("time",saveCurrentTime);
-        cartMap.put("quantity",1);
+        cartMap.put("quantity","1");
         cartMap.put("discount","");
 
         cartListRef.child("User view").child(Prevalent.currentOnlineUser.getPhone()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {

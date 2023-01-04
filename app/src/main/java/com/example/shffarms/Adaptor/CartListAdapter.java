@@ -16,8 +16,6 @@ import com.example.shffarms.Domain.FoodDomain;
 import com.example.shffarms.Helper.ManagementCart;
 import com.example.shffarms.Interface.ChangeNumberItemsListner;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHolder> {
@@ -89,11 +87,11 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
         TextView totalEachItem,num;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            title=itemView.findViewById(R.id.titleTxt);
-            feeEachItem=itemView.findViewById(R.id.feeEachItem);
+            title=itemView.findViewById(R.id.cart_product_name);
+            feeEachItem=itemView.findViewById(R.id.cart_product_price);
             pic=itemView.findViewById(R.id.picCart);
             totalEachItem=itemView.findViewById(R.id.totalEachItem);
-            num=itemView.findViewById(R.id.numberItemTxt);
+            num=itemView.findViewById(R.id.cart_product_quantity);
             plusItem=itemView.findViewById(R.id.plusCartBtn);
             minusItem=itemView.findViewById(R.id.minusCartBtn);
         }
