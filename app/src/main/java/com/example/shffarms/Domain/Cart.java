@@ -1,17 +1,15 @@
 package com.example.shffarms.Domain;
 
 public class Cart {
-    private String pid,pname,price,quantity,discount;
-
-    public Cart() {
-    }
-
+    private String pid,pname,price,quantity,discount,pic;
     public Cart(String pid, String pname, String price, String quantity, String discount) {
         this.pid = pid;
         this.pname = pname;
         this.price = price;
         this.quantity = quantity;
         this.discount = discount;
+        this.pic = pic;
+
     }
 
     public String getPid() {
@@ -52,5 +50,11 @@ public class Cart {
 
     public void setDiscount(String discount) {
         this.discount = discount;
+    }
+    public String getPic() {
+        return pic;
+    }
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 }
