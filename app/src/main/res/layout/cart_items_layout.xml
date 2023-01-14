@@ -116,4 +116,14 @@
         app:layout_constraintBottom_toBottomOf="@+id/totalEachItem"
         app:layout_constraintEnd_toStartOf="@+id/totalEachItem"
         app:layout_constraintTop_toTopOf="@+id/totalEachItem" />
+
+    <TextView
+        android:id="@+id/image_url"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="image_url"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/textView21" />
 </androidx.constraintlayout.widget.ConstraintLayout>

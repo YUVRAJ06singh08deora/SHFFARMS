@@ -78,7 +78,9 @@
                 android:layout_height="96.9dp"
                 android:layout_marginLeft="50.47dp"
                 android:layout_marginTop="19.68dp"
-                android:src="@drawable/almond"></ImageView>
+                android:src="@drawable/almond">
+
+            </ImageView>
 
             <TextView
                 android:id="@+id/productname2"

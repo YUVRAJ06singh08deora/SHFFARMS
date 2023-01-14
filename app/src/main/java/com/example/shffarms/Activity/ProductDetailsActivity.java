@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.shffarms.Adaptor.Prevalent;
 import com.example.shffarms.Domain.Products;
 import com.example.shffarms.R;
@@ -29,42 +28,47 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 public class ProductDetailsActivity extends AppCompatActivity {
+
     private Button addToCartButton;
-    private ImageView productImage;
-    private ElegantNumberButton numberButton;
-    private TextView productPrice,productDescription,productName,numberOrderTxt;
+    private ImageView productImage,plusbtn,minusbtn;
+
+    private TextView productPrice,productDescription,productName,numberOrderTxt,image_url;
     private String productID="", state = "Normal";
     int numberOrder=1;
-    private ImageView plusBtn,minusBtn;
+    private String nofOrder;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_details);
         productID = getIntent().getStringExtra("pid");
-        addToCartButton =(Button) findViewById(R.id.pd_add_to_cart_button);
         numberOrderTxt=findViewById(R.id.number_of_product_selected);
+        addToCartButton =(Button) findViewById(R.id.pd_add_to_cart_button);
         productImage = (ImageView) findViewById(R.id.product_image_details);
+        plusbtn =(ImageView) findViewById(R.id.plusBtn);
+        minusbtn=(ImageView) findViewById(R.id.minusBtn);
         productName = (TextView) findViewById(R.id.product_name_details);
         productDescription = (TextView) findViewById(R.id.product_description_details);
+        image_url=(TextView) findViewById(R.id.image_url);
         productPrice = (TextView) findViewById(R.id.product_price_details);
-        plusBtn=findViewById(R.id.plusBtn);
-        minusBtn=findViewById(R.id.minusBtn);
-
         getProductDetails(productID);
-        plusBtn.setOnClickListener(new View.OnClickListener() {
+        numberOrderTxt.setText(String.valueOf(numberOrder));
+        plusbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 numberOrder=numberOrder+1;
                 numberOrderTxt.setText(String.valueOf(numberOrder));
+                nofOrder=Integer.toString(numberOrder);
             }
         });
-        minusBtn.setOnClickListener(new View.OnClickListener() {
+        minusbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(numberOrder>1) {
                     numberOrder = numberOrder - 1;
+                    nofOrder=Integer.toString(numberOrder);
                 }
                 numberOrderTxt.setText(String.valueOf(numberOrder));
+
             }
         });
         addToCartButton.setOnClickListener(new View.OnClickListener() {
@@ -102,8 +106,10 @@ public class ProductDetailsActivity extends AppCompatActivity {
         cartMap.put("price",productPrice.getText().toString());
         cartMap.put("date",saveCurrentDate);
         cartMap.put("time",saveCurrentTime);
-        cartMap.put("quantity",String.valueOf(numberOrder));
+        cartMap.put("quantity",nofOrder);
         cartMap.put("discount","");
+        cartMap.put("image",image_url.getText());
+
 
         cartListRef.child("User view").child(Prevalent.currentOnlineUser.getPhone()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
@@ -151,6 +157,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
             }
         });
     }
+
 
     //
 

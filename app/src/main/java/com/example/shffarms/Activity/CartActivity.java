@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,17 +30,21 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 public class CartActivity extends AppCompatActivity{
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private Button NextProcessBtn;
+    public ImageView productCart;
     private TextView txtTotalAmount, txtMsg1;
     private int overTotalPrice=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
         recyclerView = findViewById(R.id.cart_list);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
@@ -73,10 +78,12 @@ public class CartActivity extends AppCompatActivity{
                 = new FirebaseRecyclerAdapter<Cart, CartViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull final Cart model) {
+
                 holder.txtProductQuantity.setText(model.getQuantity());
                 holder.txtProductPrice.setText(model.getPrice());
                 holder.txtProductName.setText(model.getPname());
-                holder.txtPic.setText(model.getPic());
+                holder.image_url_txt.setText(model.getImage());
+                Picasso.get().load(model.getImage()).into(holder.product_image);
                 int oneTyprProductTPrice = ((Integer.valueOf(model.getPrice())))* Integer.valueOf(model.getQuantity());
                 overTotalPrice = overTotalPrice + oneTyprProductTPrice;
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -108,7 +115,7 @@ public class CartActivity extends AppCompatActivity{
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()){
                                                         Toast.makeText(CartActivity.this,"Item removed Successfully.",Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(CartActivity.this,MainActivity.class);
+                                                        Intent intent = new Intent(CartActivity.this,HomeActivity.class);
                                                         startActivity(intent);
                                                     }
                                                 }
@@ -154,7 +161,6 @@ public class CartActivity extends AppCompatActivity{
                         txtTotalAmount.setText("Shipping State = Not Shipped");
                         recyclerView.setVisibility(View.GONE);
                         txtMsg1.setVisibility(View.VISIBLE);
-
                         NextProcessBtn.setVisibility(View.GONE);
                         Toast.makeText(CartActivity.this,"You can purchase more products, Once you received your first order",Toast.LENGTH_SHORT).show();
                     }

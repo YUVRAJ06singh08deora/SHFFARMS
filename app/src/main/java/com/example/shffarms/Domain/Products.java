@@ -2,10 +2,7 @@ package com.example.shffarms.Domain;
 
 public class Products {
     private String pname, description, price, image, category, pid, date, time;
-    public Products()
-    {
 
-    }
     public Products(String pname, String description, String price, String image, String category, String pid, String date, String time) {
         this.pname = pname;
         this.description = description;

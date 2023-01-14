@@ -11,10 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.shffarms.R;
 import com.example.shffarms.Domain.FoodDomain;
 import com.example.shffarms.Helper.ManagementCart;
 import com.example.shffarms.Interface.ChangeNumberItemsListner;
+import com.example.shffarms.R;
 
 import java.util.ArrayList;
 
@@ -22,6 +22,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
     private ArrayList<FoodDomain> foodDomains;
     private ManagementCart managementCart;
     private ChangeNumberItemsListner changeNumberItemsListner;
+
 
     public CartListAdapter(ArrayList<FoodDomain> foodDomains, Context context, ChangeNumberItemsListner changeNumberItemsListner) {
         this.foodDomains = foodDomains;
@@ -32,6 +33,7 @@ public class CartListAdapter extends RecyclerView.Adapter<CartListAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate=LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cart,parent,false);
+
         return new ViewHolder(inflate);
     }
 

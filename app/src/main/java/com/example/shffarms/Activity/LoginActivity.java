@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.shffarms.Adaptor.Prevalent;
 import com.example.shffarms.Domain.Users;
 import com.example.shffarms.R;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,11 +33,13 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog loadingBar;
     private TextView AdminLink, NotAdminLink;
     private String parentDbName = "Users";
+    FirebaseAuth auth;
     private CheckBox chkBoxRememberMe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        auth=FirebaseAuth.getInstance();
         LoginButton = (Button) findViewById(R.id.login_btn);
         InputPassword = (EditText) findViewById(R.id.login_password_input);
         InputPhoneNumber = (EditText) findViewById(R.id.login_phone_number_input);
@@ -49,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 LoginUser();
+
             }
         });
 
@@ -74,6 +78,11 @@ public class LoginActivity extends AppCompatActivity {
         });
 
     }
+
+    private void loginUser() {
+
+    }
+
     private void LoginUser()
     {
         String phone = InputPhoneNumber.getText().toString();
@@ -93,8 +102,22 @@ public class LoginActivity extends AppCompatActivity {
             loadingBar.setMessage("Please wait, while we are checking the credentials.");
             loadingBar.setCanceledOnTouchOutside(false);
             loadingBar.show();
-
-
+//            auth.signInWithEmailAndPassword("06yuvraj2001singh@gmail.com",password)
+//                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+//                        @Override
+//                        public void onComplete(@NonNull Task<AuthResult> task) {
+//                            if(task.isSuccessful()){
+//                                Toast.makeText(LoginActivity.this, "logged in Successfully...", Toast.LENGTH_SHORT).show();
+//                                loadingBar.dismiss();
+//                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+//                                startActivity(intent);
+//                            }
+//                            else {
+//                                loadingBar.dismiss();
+//                                Toast.makeText(LoginActivity.this,"Password is incorrect",Toast.LENGTH_SHORT).show();
+//                            }
+//                        }
+//                    });
             AllowAccessToAccount(phone, password);
         }
     }
