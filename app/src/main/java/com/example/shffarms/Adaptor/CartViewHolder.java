@@ -10,7 +10,7 @@ import com.example.shffarms.Interface.ItemClickListner;
 import com.example.shffarms.R;
 
 public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    public TextView txtProductName,txtProductPrice,txtProductQuantity,image_url_txt;
+    public TextView txtProductName,txtProductPrice,txtProductQuantity,image_url_txt,txtoverall_product_price;
     public ImageView product_image;
     private ItemClickListner itemClickListner;
 
@@ -22,7 +22,7 @@ public class CartViewHolder extends RecyclerView.ViewHolder implements View.OnCl
         txtProductQuantity = itemView.findViewById(R.id.cart_product_quantity);
         image_url_txt=itemView.findViewById(R.id.image_url);
         product_image=itemView.findViewById(R.id.picCart);
-
+        txtoverall_product_price=itemView.findViewById(R.id.totalEachItem);
 
     }
 

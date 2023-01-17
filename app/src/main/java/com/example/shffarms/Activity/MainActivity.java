@@ -3,6 +3,7 @@ package com.example.shffarms.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,10 +25,19 @@ public class MainActivity extends AppCompatActivity implements SelectListner {
 private RecyclerView.Adapter adapter,adapter2;
 private RecyclerView recyclerViewCategoryList,recyclerViewPopularList;
 private TextView explore_more;
+private ImageView accountbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        accountbtn=findViewById(R.id.accountimg);
+        accountbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+                startActivity(intent);
+            }
+        });
         explore_more=findViewById(R.id.explore_more_txt);
         explore_more.setOnClickListener(new View.OnClickListener() {
             @Override

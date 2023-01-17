@@ -108,7 +108,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
         cartMap.put("time",saveCurrentTime);
         cartMap.put("quantity",nofOrder);
         cartMap.put("discount","");
-        cartMap.put("image",image_url.getText());
+        cartMap.put("image",image_url.getText().toString());
 
 
         cartListRef.child("User view").child(Prevalent.currentOnlineUser.getPhone()).child("Products").child(productID).updateChildren(cartMap).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -146,6 +146,7 @@ public class ProductDetailsActivity extends AppCompatActivity {
                     productName.setText(products.getPname());
                     productPrice.setText(products.getPrice());
                     productDescription.setText(products.getDescription());
+                    image_url.setText(products.getImage());
                     Picasso.get().load(products.getImage()).into(productImage);
 
                 }

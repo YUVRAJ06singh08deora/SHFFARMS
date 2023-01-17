@@ -108,17 +108,18 @@
         android:textColor="@android:color/black"
         android:textSize="15dp"
         />
+
     <TextView
         android:id="@+id/image_url"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/product_description_details"
-        android:layout_marginTop="10dp"
         android:layout_marginLeft="25.01dp"
+        android:layout_marginTop="10dp"
         android:text="image url"
         android:textColor="@android:color/black"
         android:textSize="15dp"
-        />
+        android:visibility="invisible" />
     <Button
         android:id="@+id/pd_add_to_cart_button"
         android:layout_width="match_parent"

@@ -5,23 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activity.CartActivity">
+
     <RelativeLayout
         android:id="@+id/r111"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/colorPrimaryDark"
+        android:background="#FFF"
         android:layout_alignParentTop="true"
         >
         <TextView
-            android:id="@+id/total_price"
+            android:id="@+id/mycart_txt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Total Price"
-            android:textColor="@android:color/white"
+            android:text="My Cart"
+            android:textStyle="bold"
+            android:textColor="#FF5722"
             android:textSize="20dp"
             android:textAlignment="center"
             android:layout_marginTop="10dp"
-
             />
     </RelativeLayout>
     <TextView
@@ -41,12 +42,139 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cart_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="500dp"
         android:layout_below="@+id/r111">
-
     </androidx.recyclerview.widget.RecyclerView>
+    <LinearLayout
+        android:id="@+id/itemTotal_Txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_below="@+id/cart_list"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Items Total:"
+            android:textColor="#373b54"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
 
+        <TextView
+            android:id="@+id/itemTotalTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Rs 0"
+            android:textColor="#373b54"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/deliveryservice_txt_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/itemTotal_Txt">
+
+        <TextView
+            android:id="@+id/delivery_service_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Delivery Services :"
+            android:textColor="#373b54"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/deliverServiceTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Rs 0"
+            android:textColor="#373b54"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/txt_txt_linlout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/deliveryservice_txt_layout">
+
+        <TextView
+            android:id="@+id/taxt_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Tax :"
+            android:textColor="#373b54"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/taxTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Rs 0"
+            android:textColor="#373b54"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/total_txt_laout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="horizontal"
+        android:layout_below="@+id/txt_txt_linlout">
+
+        <TextView
+            android:id="@+id/total_txt_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total :"
+            android:textColor="#373b54"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/total_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rs 0"
+            android:textColor="#373b54"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
     <Button
         android:id="@+id/next_btn"
         android:layout_width="match_parent"
@@ -56,7 +184,5 @@
         android:text="Next"
         android:textColor="@android:color/white"
         android:textSize="25dp"
-
-
         />
 </RelativeLayout>

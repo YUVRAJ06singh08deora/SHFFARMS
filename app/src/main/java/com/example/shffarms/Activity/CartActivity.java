@@ -37,19 +37,28 @@ public class CartActivity extends AppCompatActivity{
     private RecyclerView.LayoutManager layoutManager;
     private Button NextProcessBtn;
     public ImageView productCart;
-    private TextView txtTotalAmount, txtMsg1;
+    private TextView txtTotalAmount,txtMsg1,totalFeetxt,taxTxt,deliveryTxt;
     private int overTotalPrice=0;
+    private double tax;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+
+
+    }
+
+    private void initView() {
         recyclerView = findViewById(R.id.cart_list);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         NextProcessBtn = (Button)findViewById(R.id.next_btn);
+        totalFeetxt=findViewById(R.id.itemTotalTxt);
+        taxTxt=findViewById(R.id.taxTxt);
+        deliveryTxt=findViewById(R.id.deliverServiceTxt);
         txtTotalAmount = (TextView)findViewById(R.id.total_price);
         txtMsg1 = (TextView)findViewById(R.id.msg1);
         NextProcessBtn.setOnClickListener(new View.OnClickListener() {
@@ -62,12 +71,24 @@ public class CartActivity extends AppCompatActivity{
                 finish();
             }
         });
+    }
 
+    private void CalculateCart() {
+        double percentTax=0.02;
+        double delivery=10;
+        tax=Math.round((overTotalPrice*percentTax)*100)/100;
+        double total=Math.round((overTotalPrice+tax+delivery)*100)/100;
+        double itemTotal=Math.round(overTotalPrice*100)/100;
+        totalFeetxt.setText("Rs. "+itemTotal);
+        taxTxt.setText("Rs. "+tax);
+        deliveryTxt.setText("Rs."+delivery);
+        txtTotalAmount.setText("Rs."+total);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        initView();
         CheckOrderState();
         final DatabaseReference cartListRef = FirebaseDatabase.getInstance().getReference().child("Cart List");
         FirebaseRecyclerOptions<Cart> options =
@@ -85,7 +106,9 @@ public class CartActivity extends AppCompatActivity{
                 holder.image_url_txt.setText(model.getImage());
                 Picasso.get().load(model.getImage()).into(holder.product_image);
                 int oneTyprProductTPrice = ((Integer.valueOf(model.getPrice())))* Integer.valueOf(model.getQuantity());
+                holder.txtoverall_product_price.setText(String.valueOf(oneTyprProductTPrice));
                 overTotalPrice = overTotalPrice + oneTyprProductTPrice;
+                CalculateCart();
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -138,6 +161,7 @@ public class CartActivity extends AppCompatActivity{
         };
         recyclerView.setAdapter(adapter);
         adapter.startListening();
+
     }
     private void CheckOrderState()
     {

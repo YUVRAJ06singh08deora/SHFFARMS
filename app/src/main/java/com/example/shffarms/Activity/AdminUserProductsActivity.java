@@ -17,6 +17,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class AdminUserProductsActivity extends AppCompatActivity {
     private RecyclerView productsList;
@@ -48,9 +49,13 @@ public class AdminUserProductsActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull CartViewHolder holder, int position, @NonNull Cart model) {
 
-                holder.txtProductQuantity.setText("Quantity = "+model.getQuantity());
+                holder.txtProductQuantity.setText(model.getQuantity());
                 holder.txtProductPrice.setText(model.getPrice());
                 holder.txtProductName.setText(model.getPname());
+                holder.image_url_txt.setText(model.getImage());
+                Picasso.get().load(model.getImage()).into(holder.product_image);
+                int oneTyprProductTPrice = ((Integer.valueOf(model.getPrice())))* Integer.valueOf(model.getQuantity());
+                holder.txtoverall_product_price.setText(String.valueOf(oneTyprProductTPrice));
             }
 
             @NonNull
